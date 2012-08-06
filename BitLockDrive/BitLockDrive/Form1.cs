@@ -34,11 +34,14 @@ namespace BitLockDrive
 
         private void btnLock_Click(object sender, EventArgs e)
         {                   
+            string drvSelected = cmbDriveSelect.SelectedValue.ToString();
+            string sysDirWithBDE = Environment.SystemDirectory + "\\manage-bde.exe";
+            string lockStatus = String.Empty;
+
             // This is the code for the base process
             Process myProcess = new Process();
+              
             // Start a new instance of this program
-            string drvSelected = cmbDriveSelect.SelectedValue.ToString();
-            string sysDirWithBDE = Environment.SystemDirectory + "\\manage-bde.exe";            
             ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(sysDirWithBDE, " -LOCK " + drvSelected.Remove(2));
             //Set Use Shell to false so as to redirect process run info to application
             myProcessStartInfo.UseShellExecute = false;           
@@ -54,7 +57,12 @@ namespace BitLockDrive
                 lblDriveLockMsg.Text = err.Message;
             }
             //Read the standard output of the process.
-            lblDriveLockMsg.Text = myProcess.StandardOutput.ReadToEnd();            
+            lockStatus = myProcess.StandardOutput.ReadToEnd();
+            if (lockStatus.Contains("code 0x80070057"))
+                lblDriveLockMsg.Text = "Drive selected is not Bit Locker encrypted";
+            else
+                lblDriveLockMsg.Text = lockStatus;
+           
             myProcess.WaitForExit();
             myProcess.Close();
         }
