@@ -37,7 +37,7 @@
             // lblDriveToLock
             // 
             this.lblDriveToLock.AutoSize = true;
-            this.lblDriveToLock.Location = new System.Drawing.Point(33, 37);
+            this.lblDriveToLock.Location = new System.Drawing.Point(33, 39);
             this.lblDriveToLock.Name = "lblDriveToLock";
             this.lblDriveToLock.Size = new System.Drawing.Size(108, 13);
             this.lblDriveToLock.TabIndex = 0;
@@ -46,14 +46,14 @@
             // cmbDriveSelect
             // 
             this.cmbDriveSelect.FormattingEnabled = true;
-            this.cmbDriveSelect.Location = new System.Drawing.Point(160, 34);
+            this.cmbDriveSelect.Location = new System.Drawing.Point(147, 35);
             this.cmbDriveSelect.Name = "cmbDriveSelect";
             this.cmbDriveSelect.Size = new System.Drawing.Size(121, 21);
             this.cmbDriveSelect.TabIndex = 1;
             // 
             // btnLock
             // 
-            this.btnLock.Location = new System.Drawing.Point(345, 34);
+            this.btnLock.Location = new System.Drawing.Point(274, 34);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(83, 23);
             this.btnLock.TabIndex = 3;
@@ -75,7 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(502, 138);
+            this.ClientSize = new System.Drawing.Size(401, 135);
             this.Controls.Add(this.lblDriveLockMsg);
             this.Controls.Add(this.btnLock);
             this.Controls.Add(this.cmbDriveSelect);
