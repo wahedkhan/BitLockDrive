@@ -60,6 +60,8 @@ namespace BitLockDrive
             lockStatus = myProcess.StandardOutput.ReadToEnd();
             if (lockStatus.Contains("code 0x80070057"))
                 lblDriveLockMsg.Text = "Drive selected is not Bit Locker encrypted";
+            else if (lockStatus.Contains("code 0x80070005"))
+                lblDriveLockMsg.Text = "Drive selected is in use by an application, force dismount may corrupt data, please release the drive from usage and try again";
             else
                 lblDriveLockMsg.Text = lockStatus;
            
